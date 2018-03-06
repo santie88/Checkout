@@ -1,11 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using Checkout.Models;
 
 namespace Checkout.DTOs
 {
     public class OrderDto
     {
+        public int Id { get; set; }
+
+        [Required]
+        public int CustomerId { get; set; }
+
+        public string CustomerName { get; set; }
+
+        public List<OrderItemDto> OrderItems { get; set; }
+
+        public bool Closed { get; set; }
     }
 }
