@@ -1,21 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Web.Http;
 using AutoMapper;
 using Checkout.DTOs;
 using Checkout.Models;
-using Microsoft.Ajax.Utilities;
-using WebGrease.Css.Extensions;
 
 namespace Checkout.Controllers
 {
     public class OrdersController : ApiController
     {
-        private ApplicationDbContext _context;
+        private readonly ApplicationDbContext _context;
 
         public OrdersController()
         {
