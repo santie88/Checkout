@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
+﻿using System.Linq;
 using System.Web.Http;
 using Checkout.Models;
 
@@ -10,12 +6,18 @@ namespace Checkout.Controllers
 {
     public class ItemsController : ApiController
     {
+        #region DBContext
+
         private ApplicationDbContext _context;
 
         public ItemsController()
         {
             _context = new ApplicationDbContext();
         }
+
+        #endregion
+
+        #region Http
 
         // GET /api/items
         public IHttpActionResult GetItems()
@@ -24,5 +26,7 @@ namespace Checkout.Controllers
 
             return Ok(items);
         }
+
+        #endregion
     }
 }

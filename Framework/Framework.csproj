@@ -45,18 +45,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CheckoutInterface.cs" />
+    <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\Item.cs" />
+    <Compile Include="Models\OrderDto.cs" />
+    <Compile Include="Models\OrderItemDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Checkout\Checkout.csproj">
-      <Project>{f7ba38c5-ca00-4871-8a8c-3ef0eb8e2342}</Project>
-      <Name>Checkout</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Web.Http;
@@ -11,12 +10,18 @@ namespace Checkout.Controllers
 {
     public class OrderItemsController : ApiController
     {
+        #region DBContext
+
         private ApplicationDbContext _context;
 
         public OrderItemsController()
         {
             _context = new ApplicationDbContext();
         }
+
+        #endregion
+
+        #region Http
 
         // GET /api/OrderItems
         public IHttpActionResult GetOrderItems()
@@ -71,5 +76,7 @@ namespace Checkout.Controllers
 
             return Ok();
         }
+
+        #endregion
     }
 }

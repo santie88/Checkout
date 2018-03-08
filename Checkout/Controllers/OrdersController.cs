@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Web.Http;
@@ -10,6 +11,8 @@ namespace Checkout.Controllers
 {
     public class OrdersController : ApiController
     {
+        #region DBContext
+
         private readonly ApplicationDbContext _context;
 
         public OrdersController()
@@ -17,11 +20,14 @@ namespace Checkout.Controllers
             _context = new ApplicationDbContext();
         }
 
+        #endregion
+
+        #region Http
+
         // GET /api/Orders
         public IHttpActionResult GetOrders()
         {
-            var orders = _context.Orders.Include(c => c.Customer).Select(Mapper.Map<Order, OrderDto>);
-            _context.OrderItems.Include(c => c.Item).Select(Mapper.Map<OrderItem, OrderItemDto>).ToList();
+            var orders = ListOrders();
 
             return Ok(orders);
         }
@@ -29,10 +35,9 @@ namespace Checkout.Controllers
         // GET /api/Orders/Id
         public IHttpActionResult GetOrders(int id)
         {
-            var orders = _context.Orders.Include(c => c.Customer).Select(Mapper.Map<Order, OrderDto>);
-            _context.OrderItems.Include(c => c.Item).Select(Mapper.Map<OrderItem, OrderItemDto>).ToList();
+            var order = ListOrders().SingleOrDefault(m => m.Id == id);
 
-            return Ok(orders);
+            return Ok(order);
         }
 
         [HttpPost]
@@ -77,5 +82,19 @@ namespace Checkout.Controllers
 
             return Ok();
         }
+
+        #endregion
+
+        #region Methods
+
+        public IEnumerable<OrderDto> ListOrders()
+        {
+            var orders = _context.Orders.Include(c => c.Customer).Select(Mapper.Map<Order, OrderDto>);
+            _context.OrderItems.Include(c => c.Item).Select(Mapper.Map<OrderItem, OrderItemDto>).ToList();
+
+            return orders;
+        }
+
+        #endregion
     }
 }

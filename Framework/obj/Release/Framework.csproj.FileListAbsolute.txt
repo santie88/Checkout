@@ -1,0 +1,8 @@
+D:\Projects\Checkout\Framework\bin\Release\Framework.dll.config
+D:\Projects\Checkout\Framework\bin\Release\Framework.dll
+D:\Projects\Checkout\Framework\bin\Release\Framework.pdb
+D:\Projects\Checkout\Framework\bin\Release\Newtonsoft.Json.dll
+D:\Projects\Checkout\Framework\bin\Release\Newtonsoft.Json.xml
+D:\Projects\Checkout\Framework\obj\Release\Framework.csprojResolveAssemblyReference.cache
+D:\Projects\Checkout\Framework\obj\Release\Framework.dll
+D:\Projects\Checkout\Framework\obj\Release\Framework.pdb
