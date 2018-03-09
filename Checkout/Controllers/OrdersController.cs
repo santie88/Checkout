@@ -22,7 +22,7 @@ namespace Checkout.Controllers
 
         #endregion
 
-        #region Http
+        #region Actions
 
         // GET /api/Orders
         public IHttpActionResult GetOrders()

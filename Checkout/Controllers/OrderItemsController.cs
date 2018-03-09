@@ -12,7 +12,7 @@ namespace Checkout.Controllers
     {
         #region DBContext
 
-        private ApplicationDbContext _context;
+        private readonly ApplicationDbContext _context;
 
         public OrderItemsController()
         {
@@ -21,7 +21,7 @@ namespace Checkout.Controllers
 
         #endregion
 
-        #region Http
+        #region Actions
 
         // GET /api/OrderItems
         public IHttpActionResult GetOrderItems()

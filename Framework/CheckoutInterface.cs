@@ -69,7 +69,7 @@ namespace Framework
             }
         }
 
-        public static OrderDto GetOrder(string urlTargetSite, string id)
+        public static OrderDto GetOrder(string urlTargetSite, int id)
         {
             var url = $"{urlTargetSite}/api/Orders/{id}";
 
@@ -87,6 +87,18 @@ namespace Framework
                     }
                 }
             }
+        }
+
+        public static OrderDto ClearOrder(string urlTargetSite, int id)
+        {
+            var order = GetOrder(urlTargetSite, id);
+
+            foreach (var orderItem in order.OrderItems)
+            {
+                DeleteOrderItem(urlTargetSite, orderItem.Id);
+            }
+
+            return GetOrder(urlTargetSite, id);
         }
 
         public static OrderItemDto CreteOrderItem(string urlTargetSite, int orderId, int itemId, int quantity)
@@ -119,7 +131,7 @@ namespace Framework
             }
         }
 
-        public static HttpStatusCode DeleteOrderItem(string urlTargetSite, string id)
+        public static HttpStatusCode DeleteOrderItem(string urlTargetSite, int id)
         {
             var url = $"{urlTargetSite}/api/OrderItems/{id}";
 
@@ -132,7 +144,7 @@ namespace Framework
             }
         }
 
-        public static HttpStatusCode UpdateOrderItem(string urlTargetSite, string id, int quantity)
+        public static HttpStatusCode UpdateOrderItem(string urlTargetSite, int id, int quantity)
         {
             var url = $"{urlTargetSite}/api/OrderItems/{id}";
 
@@ -153,7 +165,7 @@ namespace Framework
             }
         }
 
-        public static HttpStatusCode CloseOrder(string urlTargetSite, string id)
+        public static HttpStatusCode CloseOrder(string urlTargetSite, int id)
         {
             var url = $"{urlTargetSite}/api/Orders/{id}";
             var jsonString = "{\"closed\":\"true\"}";
@@ -168,7 +180,7 @@ namespace Framework
             }
         }
 
-        public static HttpStatusCode OpenOrder(string urlTargetSite, string id)
+        public static HttpStatusCode OpenOrder(string urlTargetSite, int id)
         {
             var url = $"{urlTargetSite}/api/Orders/{id}";
             var jsonString = "{\"closed\":\"false\"}";

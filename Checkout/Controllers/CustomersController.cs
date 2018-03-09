@@ -17,7 +17,7 @@ namespace Checkout.Controllers
 
         #endregion
 
-        #region Http
+        #region Actions
 
         // GET /api/customers
         public IHttpActionResult GetCustomers()
